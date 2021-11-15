@@ -44,7 +44,7 @@ async function run() {
     app.post("/products", async (req, res) => {
       const product = req.body;
       const result = await productsCollection.insertOne(product);
-      console.log(result);
+
       res.json(result);
     });
     // update single product
@@ -79,7 +79,7 @@ async function run() {
     app.post("/orders", async (req, res) => {
       const order = req.body;
       const result = await OrdersCollection.insertOne(order);
-      console.log(result);
+
       res.json(result);
     });
     //Update order from database
@@ -108,14 +108,14 @@ async function run() {
     app.post("/addreview", async (req, res) => {
       const review = req.body;
       const result = await ReviewCollection.insertOne(review);
-      console.log(result);
+
       res.json(result);
     });
     // add contact form details to database
     app.post("/contact", async (req, res) => {
       const contactForm = req.body;
       const result = await ContactsCollection.insertOne(contactForm);
-      console.log(result);
+
       res.json(result);
     });
     //get user by email
@@ -135,7 +135,7 @@ async function run() {
     app.post("/users", async (req, res) => {
       const user = req.body;
       const result = await UsersCollection.insertOne(user);
-      console.log(result);
+
       res.json(result);
     });
 
@@ -160,7 +160,6 @@ async function run() {
       const updateDoc = { $set: { role: "Admin" } };
       const result = await UsersCollection.updateOne(filter, updateDoc);
       res.json(result);
-      console.log(result);
     });
   } finally {
     // await client.close();
